@@ -19,7 +19,7 @@ In this repository, I have gathered and labelled my own dataset for my Pill Clas
 
 
 System Requirements
-When it comes to training a model, your system can heavily affect the process. The times and other figures I mention later on will be influenced by your own system specifications. My system has an Intel i5-9600KF, and more importantly an NVIDIA GeForce GTX 1660 Super with 6GBDDR6 Graphics Card Memory and 8GB of System Memory. To train with TensorFlow GPU, you need a CUDA-Enabled Graphics Card(NVIDIA GTX 650+). For more info on GPU requirements check the CUDA Docs here.
+When it comes to training a model, your system can heavily affect the process. The times and other figures I mention later on will be influenced by your own system specifications. My system has an Intel i5-9600KF, and more importantly an NVIDIA GeForce RTX 2070 Super with 8GBDDR6 Graphics Card Memory and 32GB of System Memory. To train with TensorFlow GPU, you need a CUDA-Enabled Graphics Card(NVIDIA RTX 2070). For more info on GPU requirements check the CUDA Docs here.
 
 
 
@@ -33,7 +33,7 @@ First let's install Anaconda by going to the Download Page. Here, download the 6
 
 
 Then create a virtual environment with this command
-conda create -n tensorflow pip python=3.8
+conda create -n tensorflow pip python=3.9.5
 Then activate the environment with
 
 conda activate tensorflow
@@ -55,7 +55,7 @@ Once we are done with the installation, we can use the following code to check i
 python
 >>> import tensorflow as tf
 >>> print(tf.__version__)
-If everything has installed properly you should get the message, "2.3.0", or whatever version of TensorFlow you have. This means TensorFlow is up and running and we are ready to setup our workspace. We can now proceed to the next step! Note if there is an error with importing, you must install Visual Studio 2019 with C++ Build Tools.
+If everything has installed properly you should get the message, "2.5.0", or whatever version of TensorFlow you have. This means TensorFlow is up and running and we are ready to setup our workspace. We can now proceed to the next step! Note if there is an error with importing, you must install Visual Studio 2019 with C++ Build Tools.
 
 Preparing our Workspace and Anaconda Virtual Environment Directory Structure
 For the TensorFlow Object Detection API, there is a certain directory structure that we must follow to train our model. To make the process a bit easier, I added most of the necessary files in this repository.
@@ -81,6 +81,8 @@ TensorFlow/
 └─ scripts/
 └─ workspace/
    ├─ training_demo/
+   
+   
 After we have setup the directory structure, we must install the prequisites for the Object Detection API. First we need to install the protobuf compiler with
 
 conda install -c anaconda protobuf
@@ -289,7 +291,7 @@ cd C:\TensorFlow\workspace\training_demo
 Now just run the following command to following command for evaluation
 
 python model_main_tf2.py --pipeline_config_path models\my_ssd_mobilenet_v2_fpnlite\pipeline.config --model_dir models\my_ssd_mobilenet_v2_fpnlite --checkpoint_dir models\my_ssd_mobilenet_v2_fpnlite --alsologtostderr
-Note that if you get an error similar to TypeError: object of type <class 'numpy.float64'> cannot be safely interpreted as an integer, just downgrade your NumPy version. For me, version 1.17.3 worked so you can install it with pip install numpy==1.17.3
+Note that if you get an error similar to TypeError: object of type <class 'numpy.float64'> cannot be safely interpreted as an integer, just downgrade your NumPy version. For me, version 1.17.3 worked so you can install it with pip install numpy==1.17.3 by default you will get 1.19.5
 
 If everything works properly, you should get something similar to this
 
