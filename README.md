@@ -1,11 +1,11 @@
 # custom-object-detection-TFOD-
 Training-a-Custom-TensorFlow-2.X-Object-Detector
 Learn how to Train a TensorFlow Custom Object Detector with TensorFlow-GPU
-This repo is a guide to use the newly introduced TensorFlow Object Detection API for training a custom object detector with TensorFlow 2.X versions. The steps mentioned mostly follow this documentation, however I have simplified the steps and the process. As of 9/13/2020 I have tested with TensorFlow 2.3.0 to train a model on Windows 10.
+This repo is a guide to use the newly introduced TensorFlow Object Detection API for training a custom object detector with TensorFlow 2.X versions. The steps mentioned mostly follow this documentation, however I have simplified the steps and the process. As of 9/13/2020 I have tested with TensorFlow 2.5.0 to train a model on Windows 10 with RTX2070.
 
-I will soon make a YouTube Tutorial which will be posted here, and an extremely import step here!
 
-Table of Contents
+
+Table of Contents:
 Installing TensorFlow GPU
 Preparing our Workspace and Anaconda Virtual Environment Directory Structure
 Gathering and Labeling our Dataset
@@ -266,7 +266,7 @@ tensorboard --logdir=models\my_ssd_mobilenet_v2_fpnlite
 It should output something like this
 
 Serving TensorBoard on localhost; to expose to the network, use a proxy or pass --bind_all
-TensorBoard 2.2.2 at http://localhost:6006/ (Press CTRL+C to quit)
+TensorBoard 2.6.1 at http://localhost:6006/ (Press CTRL+C to quit)
 Then just open up a web browser and paste the URL given in to the search bar. This should take you to the TensorBoard Server where you can continuously monitor training!
 
 Exporting the Inference Graph
@@ -304,7 +304,7 @@ TF-video-od.py: This program is similar to the TF-image-od.py. However, it perfo
 TF-video-object-counting.py: This program is similar to TF-image-object-counting.py and has a similar labelling method with OpenCV. Takes a video for input, and also performs object detection on each frame, displaying the detection count in the top left corner.
 The usage of each program looks like
 
-usage: TF-image-od.py [-h] [--model MODEL] [--labels LABELS] [--image IMAGE] [--threshold THRESHOLD]
+usage: TF-image-od.py
 
 optional arguments:
   -h, --help            show this help message and exit
