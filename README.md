@@ -41,8 +41,7 @@ Note that whenever you open a new Anaconda Terminal you will not be in the virtu
 
 Now that our Anaconda Virtual Environment is set up, we can install CUDA and cuDNN. If you plan to use TensorFlow CPU, you can skip this step and go on to the TensorFlow Installation. If you are using a different version of TensorFlow, take a look at the tested building configurations here. For more information about installing TensorFlow GPU check the TensorFlow website.
 
-Since you now know the correct CUDA and cuDNN versions needed for TensorFlow, we can install them from the NVIDIA Website. For TensorFlow 2.3.0, I used cuDNN 7.6.5 and CUDA 10.1. Check the CUDA Archive and cuDNN Archive for other versions. After downloading both files, run the CUDA Installer and follow the setup wizard to install CUDA, there might be some MSBuild and Visual Studio conflicts which you should be able to resolve by installing the newest version of Visual Studio Community with MSBuild Tools. After you have successfully installed the CUDA Toolkit, find where it is installed (for me it was in C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1). Then extract the contents of the cuDNN library in to the CUDA Folder.
-
+Since you now know the correct CUDA and cuDNN versions needed for TensorFlow, we can install them from the NVIDIA Website. For TensorFlow 2.5.0, I used cuDNN 8.1. and CUDA 11.2. Check the CUDA Archive and cuDNN Archive for other versions. After downloading both files, run the CUDA Installer and follow the setup wizard to install CUDA, there might be some MSBuild and Visual Studio conflicts which you should be able to resolve by installing the newest version of Visual Studio Community with MSBuild Tools. After you have successfully installed the CUDA Toolkit.
 
 
 Once done with this we have everything needed to install TensorFlow-GPU (or TensorFlow CPU). So we can navigate back to our anaconda prompt, and issue the following command
@@ -151,18 +150,17 @@ If you want to train a model on your own custom dataset, you must first gather i
 
 
 
-
-
 After gathering some images, you must partition the dataset. By this I mean you must seperate the data in to a training set and testing set. You should put 80% of your images in to the images\training folder and put the remaining 20% in the images\test folder. After seperating your images, you can label them with LabelImg.
 
-After Downloading LablelImg, configure settings such as the Open Dir and Save Dir. This let's you cycle through all the images and create bounding boxes and labels around the objects. Once you have labelled your image make sure to save and go on to the next image. Do this for all the images in the images\test and images\train folders.
+pip install labelImg
+and than type labelImg and label images and objects in the image
 
 
 
 We have now gathered our dataset. This means we are ready to generate training data. So onwards to the next step!
 
 Generating Training Data
-Since our images and XML files are prepared, we are ready to create the label_map. It is located in the annotations folder, so navigate to that within File Explorer. After you've located label_map.pbtxt, open it with a Text Editor of your choice. If you plan to use my Pill Classification Model, you don't need to make any changes and you can skip to configuring the pipeline. If you want to make your own custom object detector you must create a similar item for each of your labels. Since my model had two classes of pills, my labelmap looked like
+Since our images and XML files are prepared, we are ready to create the label_map. It is located in the annotations folder, so navigate to that within File Explorer. After you've located label_map.pbtxt, open it with a Text Editor of your choice. If you plan to use my Pill Classification Model, you don't need to make any changes and you can skip to configuring the pipeline. Exmaple labelmap creation for your own objects just as below(Example one)
 
 item {
     id: 1
@@ -293,7 +291,7 @@ Now just run the following command to following command for evaluation
 python model_main_tf2.py --pipeline_config_path models\my_ssd_mobilenet_v2_fpnlite\pipeline.config --model_dir models\my_ssd_mobilenet_v2_fpnlite --checkpoint_dir models\my_ssd_mobilenet_v2_fpnlite --alsologtostderr
 Note that if you get an error similar to TypeError: object of type <class 'numpy.float64'> cannot be safely interpreted as an integer, just downgrade your NumPy version. For me, version 1.17.3 worked so you can install it with pip install numpy==1.17.3 by default you will get 1.19.5
 
-If everything works properly, you should get something similar to this
+
 
 
 
@@ -306,7 +304,7 @@ TF-video-od.py: This program is similar to the TF-image-od.py. However, it perfo
 TF-video-object-counting.py: This program is similar to TF-image-object-counting.py and has a similar labelling method with OpenCV. Takes a video for input, and also performs object detection on each frame, displaying the detection count in the top left corner.
 The usage of each program looks like
 
-usage: TF-image-od.py
+usage: Use pyhton object detection script available in models folder
 
 optional arguments:
   -h, --help            show this help message and exit
