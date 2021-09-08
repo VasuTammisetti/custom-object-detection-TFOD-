@@ -1,0 +1,26 @@
+<annotation verified="yes">
+	<folder>test</folder>
+	<filename>Image_6.jpg</filename>
+	<path>C:\Tensorflow\workspace\training_demo\images\test\Image_6.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1024</width>
+		<height>688</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Car</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>132</xmin>
+			<ymin>51</ymin>
+			<xmax>895</xmax>
+			<ymax>614</ymax>
+		</bndbox>
+	</object>
+</annotation>
