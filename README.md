@@ -325,3 +325,5 @@ If everything works properly you should get an output similar to this
 
 
 This means we're done! Over the next few weeks or months, I'll keep working on new programs and keep testing! If you find something cool, feel free to share it, as others can also learn! And if you have any errors, just raise an issue and I'll be happy to take a look at it. Congratulations, and until next time, bye!
+![image](https://user-images.githubusercontent.com/59999074/134878753-e8443fce-751d-47f7-9783-cbb1a25b8909.png)
+![image](https://user-images.githubusercontent.com/59999074/134878881-683b819e-b197-4f0d-ad5b-53c33c6bb1bc.png)
