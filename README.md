@@ -4,7 +4,6 @@ Learn how to Train a TensorFlow Custom Object Detector with TensorFlow-GPU
 This repo is a guide to use the newly introduced TensorFlow Object Detection API for training a custom object detector with TensorFlow 2.X versions. The steps mentioned mostly follow this documentation, however I have simplified the steps and the process. As of 9/13/2020 I have tested with TensorFlow 2.5.0 to train a model on Windows 10 with RTX2070.
 
 
-
 Table of Contents:
 Installing TensorFlow GPU
 Preparing our Workspace and Anaconda Virtual Environment Directory Structure
